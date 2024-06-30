@@ -93,7 +93,7 @@
 }
 
 .titulo__books {
-    color: var(--laranja);
+    color: #f99aaa;
 }
 
 
@@ -138,7 +138,7 @@
     }
 
     .titulo__books {
-        color: var(--laranja);
+        color: #f99aaa;
     }
 
     .opçoes__botao:checked~.lista-menu {
