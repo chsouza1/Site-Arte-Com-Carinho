@@ -3,30 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-    <header class="cabecalho">
-        <div class="container">
-            <h1 class="container__titulo">Login Administrador</h1>
-        </div>
-    </header>
+    
+<div class="w3-container">
+    <form class="w3-container" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label class="w3-text-blue"><b>Email</b></label>
+            <input class="w3-input w3-border" type="email" name="email" required>
 
-    <section class="Login">
-        <h2 class="login__titulo">Faça login para acessar</h2>
-        <form action="admin.html" method="post" class="login__formulario">
-            <div class="login__campo">
-                <label for="usuario">Usuário:</label>
-                <input type="text" id="usuario" name="usuario" required>
-            </div>
-            <div class="login__campo">
-                <label for="senha">Senha:</label>
-                <label for="password" id="senha" name="senha" required></label>
-            </div>
-            <button type="submit" class="login__botao">Entrar</button>
-        </form>
-    </section>
+            <label class="w3-text-blue"><b>Senha</b></label>
+            <input class="w3-input w3-border" type="password" name="senha" required>
+
+            <button type="submit" class="w3-btn w3-blue w3-margin-top">Entrar</button>
+            <button type="enter" class="w3-btn w3-blue w3-margin-top">Ainda nao tem uma conta? <a href="register.php">Cadastre-se aqui</a></button>
+
+    </form>
+</div>
+    <p class="w3-text-red"><?php echo $login_err ?? ''; ?></p>
+<?php
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $servername = 'localhost';
+    $username = "root";
+    $password = "";
+    $dbname = "arte_com_carinho";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+    $sql = "SELECT id, nome, email, senha FROM usuarios WHERE email = '$email'";
+    $result = $conn->query($sql);
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        if (password_verify($senha, $row["senha"])) {
+            $_SESSION["id"] = $row["id"];
+            $_SESSION["nome"] = $row["nome"];
+            header("Location: perfil.php");
+        } else {
+            echo "<p>Senha incorreta. Tente Novamente</p>";
+        }
+} else {
+    echo "<p>Usuario não encontrado.</p>";
+}
+
+$conn->close();
+}
+?>
+
 </body>
 </html>
