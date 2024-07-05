@@ -41,6 +41,10 @@
     margin-bottom: 1rem;
 }
 
+.botao__cor {
+    color: var(--rosa)
+}
+
 .produto__titulo {
     font-size: 1.25rem;
     margin: 0.5rem 0;

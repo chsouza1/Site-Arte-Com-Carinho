@@ -1,25 +1,46 @@
 <?php
 session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario_correto = 'administrador';
-    $senha_correta = 'Bol@d&s@b@o.2024';
 
-    $usuario = $_POST["usuario"];
-    $senha = $_POST["senha"];
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nome"])) {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "arte_com_carinho";
 
-    if ($usuario === $usuario_correto && $senha === $senha_correta) {
-        $_SESSION["loggedin"] = true;
-        $_SESSION["usuario"] = $usuario;
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-        if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !==true) {
-            header("location: admin.php");
-            exit;
-        }
-    } else {
-        echo '<div class="w3-container">';
-        echo '<p class="w3-text-red">Usuário ou senha incorretos.</p>';
-        echo '</div>';  
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
+
+    $nome = $_POST["nome"];
+    $descricao = $_POST["descricao"];
+    $preco = $_POST["preco"];
+    $categoria = $_POST["categoria"];
+    $imagem = $_FILES["imagem"]["name"];
+
+    $target_dir = "img/";
+    $target_file = $target_dir . basename($imagem);
+    move_uploaded_file($_FILES["imagem"]["tmp_name"], $target_file);
+
+    $sql = "INSERT INTO produtos (nome, descricao, preco, categoria, imagem) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssdss", $nome, $descricao, $preco, $categoria, $imagem);
+
+    if ($stmt->execute()) {
+        echo "Produto adicionado com sucesso.";
+    } else {
+        echo "Erro ao adicionar produto: " . $conn->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    echo '<script>alert("Você precisa efetuar o login de ADMINISTRADOR para continuar!");</script>';
+    echo '<script>window.location.href = "login_admin.php";</script>';
+    exit;
 }
 ?>
 
@@ -36,9 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="w3-container">
     <h2>Administração de Produtos</h2>
 
-    <!-- Formulário para adicionar produto -->
     <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION["usuario"]); ?>!</p>
     <p><a href="logout_admin.php" class="w3-btn w3-red">Sair</a></p>
+
+    <!-- Formulário para adicionar produto -->
     <form class="w3-container" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
         <label class="w3-text-blue"><b>Nome do Produto</b></label>
         <input class="w3-input w3-border" type="text" name="nome" required>
@@ -51,6 +73,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <label class="w3-text-blue"><b>Imagem do Produto</b></label>
         <input class="w3-input w3-border" type="file" name="imagem" accept="image/*" required>
+        
+        <label class="w3-text-blue"><b>Categoria</b></label>
+        <select class="w3-select w3-border" name="categoria" required>
+            <option value="" disabled selected>Escolha uma categoria</option>
+            <option value="Toalha de Boca">Toalha de Boca</option>
+            <option value="Toalha de Banho">Toalha de Banho</option>
+            <option value="Toalha de Rosto">Toalha de Rosto</option>
+            <option value="Toalha de Capuz">Toalha de Capuz</option>
+            <option value="Manta">Manta</option>
+            <option value="Ninho">Ninho</option>
+        </select>
 
         <button type="submit" class="w3-btn w3-blue w3-margin-top">Adicionar Produto</button>
     </form>
@@ -60,34 +93,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h3>Produtos existentes</h3>
     <div class="w3-row-padding">
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "arte_com_carinho";
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nome"])) {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "arte_com_carinho";
 
-        $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Verificar a conexão
-        if ($conn->connect_error) {
-            die("Conexão falhou: " . $conn->connect_error);
-        }
-
-        // Consulta SQL para obter produtos
-        $sql = "SELECT id, nome, descricao, preco, imagem FROM produtos";
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+        $sql = "SELECT id, nome, descricao, preco, categoria, imagem FROM produtos";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            // Exibir produtos em cards
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="w3-third w3-margin-bottom">
                         <div class="w3-card-4">
                             <img src="img/' . $row["imagem"] . '" alt="' . $row["nome"] . '" style="max-width: 100%; height: auto;">
                             <div class="w3-container">
-                                <h3>' . $row["nome"] . '</h3>
-                                <p>' . $row["descricao"] . '</p>
-                                <p>R$ ' . number_format($row["preco"], 2, ',', '.') . '</p>
-                                <p><a href="remove_produto.php?id=' . $row["id"] . '" class="w3-btn w3-red">Remover</a></p>
-                            </div>
+                                <h3>' . $row["nome"] . '</h3>';
+                                echo '<p>' . $row["descricao"] . '</p>';
+                                echo '<p>R$ ' . number_format($row["preco"], 2, ',', '.') . '</p>';
+                                echo '<p>Categoria: ' . $row["categoria"] . '</p>';
+                                echo '<p><a href="remove_produto.php?id=' . $row["id"] . '" class="w3-btn w3-red">Remover</a></p>';
+                            echo '</div>
                         </div>
                       </div>';
             }
@@ -95,8 +126,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<p>Nenhum produto encontrado.</p>';
         }
 
-        // Fechar a conexão com o banco de dados
         $conn->close();
+    }   
         ?>
     </div>
 </div>

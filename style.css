@@ -3,7 +3,7 @@
 @import url(styles/catalogo.css);
 @import url(styles/contato.css);
 @import url(styles/rodape.css);
-
+@import url(styles/w3.css);
 :root {
     --cor-branca: #FFFF;    
     --cor-de-fundo: #EBECEE;
@@ -15,6 +15,7 @@
     --cinza: #474646;
     --cinza-claro: #858585;
     --verde: #00b89f;
+    --rosa: rgba(255, 99, 71, 0.5); 
 }
 
 body {
