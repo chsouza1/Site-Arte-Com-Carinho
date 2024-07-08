@@ -13,6 +13,24 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="w3.css">
+    <style>
+        .catalogo__botoes {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleCategories() {
+            var x = document.getElementById("catalogoBotoes");
+            var mensagem = document.getElementById("mensagemCategoria");
+            if (x.style.display === "none" || x.style.display === "") {
+                x.style.display = "block";
+                mensagem.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                    mensagem.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <header class="cabecalho">
@@ -42,29 +60,31 @@
 
     <section class="catalogo">
         <h2 class="catalogo__titulo">Nosso Catálogo de Produtos</h2>
-        <div class="catalogo__botoes">
-            <a href="?categoria=Toalha%20de%20Boca" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalha de Boca</a>
-            <a href="?categoria=Toalha%20de%20Banho" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalha de Banho</a>
-            <a href="?categoria=Toalha%20de%20Rosto" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalha de Rosto</a>
-            <a href="?categoria=Toalha%20de%20Capuz" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalha de Capuz</a>
+        <button class="w3-btn w3-blue" onclick="toggleCategories()">Mostrar Categorias</button>
+        <div id="catalogoBotoes" class="catalogo__botoes">
+            <a href="?categoria=Toalha%20de%20Boca" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Boca</a>
+            <a href="?categoria=Toalha%20de%20Banho" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Banho</a>
+            <a href="?categoria=Toalha%20de%20Rosto" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Rosto</a>
+            <a href="?categoria=Toalha%20de%20Capuz" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Capuz</a>
             <a href="?categoria=Manta" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Manta</a>
             <a href="?categoria=fralda%20%de%20boca" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Fralda de Boca</a>
-            <a href="?categoria=Necessaire" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Necessaire</a>
-            <a href="?categoria=Toalha%20Fralda" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalha Fralda</a>
-            <a href="?categoria=Pano%20de%20Prato" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Pano de Prato</a>
-            <a href="?categoria=Bolsa%20Maternidade" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Bolsa Maternidade</a>
-            <a href="?categoria=Saquino%20Maternidade" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Saquino Maternidade</a>
-            <a href="?categoria=Porta%20lenco%20umedecido" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Porta Lenço Umedecido</a>
-            <a href="?categoria=Estojo" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Estojo</a>
-            <a href="?categoria=Cardeneta%20Vacinação" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Cardeneta Vacinação</a>
+            <a href="?categoria=Necessaire" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Necessaires</a>
+            <a href="?categoria=Toalha%20Fralda" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas Fralda</a>
+            <a href="?categoria=Pano%20de%20Prato" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Panos de Prato</a>
+            <a href="?categoria=Bolsa%20Maternidade" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Bolsas Maternidade</a>
+            <a href="?categoria=Saquino%20Maternidade" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Saquinos Maternidade</a>
+            <a href="?categoria=Porta%20lenco%20umedecido" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Porta Lenços Umedecido</a>
+            <a href="?categoria=Estojo" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Estojos</a>
+            <a href="?categoria=Cardeneta%20Vacinação" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Porta Documentos</a>
             <a href="?categoria=Naninhas" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Naninhas</a>
-            <a href="?categoria=Mochila" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Mochila</a>
+            <a href="?categoria=Mochila" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Mochilas</a>
+            <a href="?categoria=Bolsas" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Bolsas Maternidade</a>
 
         </div>
         <div class="catalogo__produtos">
             <?php
             $servername = "localhost";
-            $username = "arte_bd";
+            $username = "root";
             $password = "";
             $dbname = "arte_com_carinho";
             $conn = new mysqli($servername, $username, $password, $dbname);
@@ -119,6 +139,5 @@
     <footer class="rodape">
         <h2 class="rodape__titulo">Arte Com Carinho &copf; <br> <p class="desenvolvedor">DEV. Por Carlos</p></h2>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>

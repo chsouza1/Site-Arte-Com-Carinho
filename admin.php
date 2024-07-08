@@ -1,18 +1,24 @@
 <?php
 session_start();
 
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    echo '<script>alert("Você precisa efetuar o login de ADMINISTRADOR para continuar!");</script>';
+    echo '<script>window.location.href = "login_admin.php";</script>';
+    exit;
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "arte_com_carinho";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nome"])) {
-    $servername = "localhost";
-    $username = "arte_bd";
-    $password = "";
-    $dbname = "arte_com_carinho";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
     $nome = $_POST["nome"];
     $descricao = $_POST["descricao"];
     $preco = $_POST["preco"];
@@ -34,14 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nome"])) {
     }
 
     $stmt->close();
-    $conn->close();
 }
 
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    echo '<script>alert("Você precisa efetuar o login de ADMINISTRADOR para continuar!");</script>';
-    echo '<script>window.location.href = "login_admin.php";</script>';
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +51,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administração de Produtos</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="style.css">
 </head>
+<style>
+
+</style>
 <body>
 
 <div class="w3-container">
@@ -93,6 +98,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <option value="Naninhas">Naninhas</option>
             <option value="Mochila">Mochila</option>
             <option value="Ninho">Ninho</option>
+            <option value="Bolsas">Bolsas Maternidade</option>
         </select>
 
         <button type="submit" class="w3-btn w3-blue w3-margin-top">Adicionar Produto</button>
@@ -103,17 +109,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <h3>Produtos existentes</h3>
     <div class="w3-row-padding">
         <?php
-        $servername = "localhost";
-        $username = "arte_bd";
-        $password = "";
-        $dbname = "arte_com_carinho";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
         $sql = "SELECT categoria, id, nome, descricao, preco, imagem FROM produtos ORDER BY categoria";
         $result = $conn->query($sql);
 
@@ -128,14 +123,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     echo '<h4>' . $current_category . '</h4>';
                     echo '<div class="w3-row-padding">';
                 }
-                echo '<div class="w3-third w3-margin-bottom">
+                echo '<div class="w3-third w3-margin-bottom product-card">
                         <div class="w3-card-4">
-                            <img src="img/' . $row["imagem"] . '" alt="' . $row["nome"] . '" style="max-width: 100%; height: auto;">
+                            <img src="img/' . $row["imagem"] . '" alt="' . $row["nome"] . '">
                             <div class="w3-container">
                                 <h3>' . $row["nome"] . '</h3>';
                                 echo '<p>' . $row["descricao"] . '</p>';
                                 echo '<p>R$ ' . number_format($row["preco"], 2, ',', '.') . '</p>';
-                                echo '<p><a href="remove_produto.php?id=' . $row["id"] . '" class="w3-btn w3-red">Remover</a></p>';
+                                echo '<p><a href="edit_produto.php?id=' . $row["id"] . '" class="w3-btn w3-green">Editar</a> <a href="remove_produto.php?id=' . $row["id"] . '" class="w3-btn w3-red">Remover</a></p>';
                             echo '</div>
                         </div>
                       </div>';

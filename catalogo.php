@@ -1,7 +1,7 @@
 <?php
 // Conexão com o banco de dados
 $servername = "localhost";
-$username = "arte_bd";
+$username = "root";
 $password = "";
 $dbname = "arte_com_carinho";
 $conn = new mysqli($servername, $username, $password, $dbname);
