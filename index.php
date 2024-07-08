@@ -16,13 +16,19 @@
 </head>
 <body>
     <header class="cabecalho">
-        <div class="container"> 
+        <div class="container">
             <input type="checkbox" id="menu" class="container__botao">
             <label for="menu" class="container__rotulo">
                 <span class="cabecalho__menu-hamburguer container__imagem"></span>
             </label>
             <img src="img/logoarte.jpg" alt="logo ArteComCarinho" width="80" height="80" class="container__imagem" >
             <h1 class="container__titulo"><b class="container__titulo--negrito">Arte</b> <span class="titulo__books">Com Carinho</span></h1>
+        </div>
+        <div class="container">
+            <a href="login_admin.php" class="container__links">
+            <img src="img/Usuário.svg" alt="Meu perfil" class="container__imagem">
+            <p class="container__texto">Login</p>
+            </a>
         </div>
     </header>
 
@@ -49,11 +55,16 @@
             <a href="?categoria=Bolsa%20Maternidade" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Bolsa Maternidade</a>
             <a href="?categoria=Saquino%20Maternidade" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Saquino Maternidade</a>
             <a href="?categoria=Porta%20lenco%20umedecido" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Porta Lenço Umedecido</a>
+            <a href="?categoria=Estojo" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Estojo</a>
+            <a href="?categoria=Cardeneta%20Vacinação" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Cardeneta Vacinação</a>
+            <a href="?categoria=Naninhas" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Naninhas</a>
+            <a href="?categoria=Mochila" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Mochila</a>
+
         </div>
         <div class="catalogo__produtos">
             <?php
             $servername = "localhost";
-            $username = "root";
+            $username = "arte_bd";
             $password = "";
             $dbname = "arte_com_carinho";
             $conn = new mysqli($servername, $username, $password, $dbname);

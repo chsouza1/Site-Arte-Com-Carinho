@@ -26,7 +26,7 @@
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = 'localhost';
-    $username = "root";
+    $username = "arte_bd";
     $password = "";
     $dbname = "arte_com_carinho";
 

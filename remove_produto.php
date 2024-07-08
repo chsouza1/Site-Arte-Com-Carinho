@@ -1,7 +1,7 @@
 <?php
 // Conexão com o banco de dados
 $servername = "localhost";
-$username = "root";
+$username = "arte_bd";
 $password = "";
 $dbname = "arte_com_carinho";
 

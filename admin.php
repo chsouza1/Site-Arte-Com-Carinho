@@ -3,7 +3,7 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nome"])) {
     $servername = "localhost";
-    $username = "root";
+    $username = "arte_bd";
     $password = "";
     $dbname = "arte_com_carinho";
 
@@ -77,11 +77,21 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <label class="w3-text-blue"><b>Categoria</b></label>
         <select class="w3-select w3-border" name="categoria" required>
             <option value="" disabled selected>Escolha uma categoria</option>
-            <option value="Toalha de Boca">Toalha de Boca</option>
             <option value="Toalha de Banho">Toalha de Banho</option>
             <option value="Toalha de Rosto">Toalha de Rosto</option>
             <option value="Toalha de Capuz">Toalha de Capuz</option>
             <option value="Manta">Manta</option>
+            <option value="Fralda de Boca">Fralda de Boca</option>
+            <option value="Necessaire">Necessaire</option>
+            <option value="Toalha Fralda">Toalha Fralda</option>
+            <option value="Pano de Prato">Pano de Prato</option>
+            <option value="Bolsa Maternidade">Bolsa Maternidade</option>
+            <option value="Saquino Maternidade">Saquino Maternidade</option>
+            <option value="Porta Lenco Umedecido">Porta Lenço Umedecido</option>
+            <option value="Estojo">Estojo</option>
+            <option value="Cardeneta Vacinação">Cardeneta Vacinação</option>
+            <option value="Naninhas">Naninhas</option>
+            <option value="Mochila">Mochila</option>
             <option value="Ninho">Ninho</option>
         </select>
 
@@ -93,22 +103,31 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <h3>Produtos existentes</h3>
     <div class="w3-row-padding">
         <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nome"])) {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "arte_com_carinho";
+        $servername = "localhost";
+        $username = "arte_bd";
+        $password = "";
+        $dbname = "arte_com_carinho";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-        $sql = "SELECT id, nome, descricao, preco, categoria, imagem FROM produtos";
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT categoria, id, nome, descricao, preco, imagem FROM produtos ORDER BY categoria";
         $result = $conn->query($sql);
 
+        $current_category = "";
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                if ($row["categoria"] != $current_category) {
+                    if ($current_category != "") {
+                        echo '</div>';
+                    }
+                    $current_category = $row["categoria"];
+                    echo '<h4>' . $current_category . '</h4>';
+                    echo '<div class="w3-row-padding">';
+                }
                 echo '<div class="w3-third w3-margin-bottom">
                         <div class="w3-card-4">
                             <img src="img/' . $row["imagem"] . '" alt="' . $row["nome"] . '" style="max-width: 100%; height: auto;">
@@ -116,18 +135,17 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                 <h3>' . $row["nome"] . '</h3>';
                                 echo '<p>' . $row["descricao"] . '</p>';
                                 echo '<p>R$ ' . number_format($row["preco"], 2, ',', '.') . '</p>';
-                                echo '<p>Categoria: ' . $row["categoria"] . '</p>';
                                 echo '<p><a href="remove_produto.php?id=' . $row["id"] . '" class="w3-btn w3-red">Remover</a></p>';
                             echo '</div>
                         </div>
                       </div>';
             }
+            echo '</div>'; // Fecha a última categoria
         } else {
             echo '<p>Nenhum produto encontrado.</p>';
         }
 
         $conn->close();
-    }   
         ?>
     </div>
 </div>
