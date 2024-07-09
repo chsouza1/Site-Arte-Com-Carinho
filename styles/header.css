@@ -95,6 +95,12 @@
 .titulo__books {
     color: #f99aaa;
 }
+.catalogo__botoes {
+    display: none;
+}
+.banner__botao-pesquisa {
+    display: none;
+}
 
 
 @media  screen and (min-width: 1024px) {
@@ -168,7 +174,14 @@
         -webkit-text-fill-color: var(--cor-branca);
         text-decoration: none;
     }
+    .catalogo__botoes {
+        display: none;
+    }
+    .banner__botao-pesquisa {
+        display: none;
+    }
 }
+
 
 @media screen and (min-width: 1680px) {
     .container__links{
@@ -188,5 +201,11 @@
 
     .container__texto {
         display: block;
+    }
+    .catalogo__botoes {
+        display: none;
+    }
+    .banner__botao-pesquisa {
+        display: none;
     }
 }

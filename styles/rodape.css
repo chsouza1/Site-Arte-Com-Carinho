@@ -11,6 +11,7 @@ hr {
 }
 
 .desenvolvedor {
+    font-size: 22px;
     color: var(--laranja);
 }
 
@@ -49,6 +50,7 @@ hr {
     }
 
     .desenvolvedor {
+        font-size: 22px;
         color: var(--laranja);
     }
 }

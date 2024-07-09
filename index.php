@@ -12,11 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="w3.css">
     <style>
-        .catalogo__botoes {
-            display: none;
-        }
+
     </style>
     <script>
         function toggleCategories() {
@@ -39,7 +36,9 @@
             <label for="menu" class="container__rotulo">
                 <span class="cabecalho__menu-hamburguer container__imagem"></span>
             </label>
+            <a href="index.php">
             <img src="img/logoarte.jpg" alt="logo ArteComCarinho" width="80" height="80" class="container__imagem" >
+            </a>
             <h1 class="container__titulo"><b class="container__titulo--negrito">Arte</b> <span class="titulo__books">Com Carinho</span></h1>
         </div>
         <div class="container">
@@ -54,31 +53,31 @@
         <h2 class="banner__titulo">Já sabe por onde começar?</h2>
         <form method="GET" action="" class="banner__formulario">
             <input type="search" name="search" class="banner__pesquisa" placeholder="O que você deseja achar?">
-            <button type="submit" class="banner__botao-pesquisa"></button>
+            <button type="submit" class="banner__botao-pesquisa">aaa</button>
         </form>
     </section>
 
     <section class="catalogo">
         <h2 class="catalogo__titulo">Nosso Catálogo de Produtos</h2>
-        <button class="w3-btn w3-blue" onclick="toggleCategories()">Mostrar Categorias</button>
+        <button class="w3-btn w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)" onclick="toggleCategories()">Mostrar Categorias</button>
         <div id="catalogoBotoes" class="catalogo__botoes">
-            <a href="?categoria=Toalha%20de%20Boca" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Boca</a>
-            <a href="?categoria=Toalha%20de%20Banho" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Banho</a>
-            <a href="?categoria=Toalha%20de%20Rosto" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Rosto</a>
-            <a href="?categoria=Toalha%20de%20Capuz" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Capuz</a>
-            <a href="?categoria=Manta" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Manta</a>
-            <a href="?categoria=fralda%20%de%20boca" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Fralda de Boca</a>
-            <a href="?categoria=Necessaire" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Necessaires</a>
-            <a href="?categoria=Toalha%20Fralda" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas Fralda</a>
-            <a href="?categoria=Pano%20de%20Prato" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Panos de Prato</a>
-            <a href="?categoria=Bolsa%20Maternidade" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Bolsas Maternidade</a>
-            <a href="?categoria=Saquino%20Maternidade" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Saquinos Maternidade</a>
-            <a href="?categoria=Porta%20lenco%20umedecido" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Porta Lenços Umedecido</a>
-            <a href="?categoria=Estojo" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Estojos</a>
-            <a href="?categoria=Cardeneta%20Vacinação" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Porta Documentos</a>
-            <a href="?categoria=Naninhas" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Naninhas</a>
-            <a href="?categoria=Mochila" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Mochilas</a>
-            <a href="?categoria=Bolsas" class="w3-btn botao__cor" style="background-color:rgb(255, 99, 71, 0.5)">Bolsas Maternidade</a>
+            <a href="?categoria=Toalha%20de%20Boca" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Boca</a>
+            <a href="?categoria=Toalha%20de%20Banho" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Banho</a>
+            <a href="?categoria=Toalha%20de%20Rosto" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Rosto</a>
+            <a href="?categoria=Toalha%20de%20Capuz" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Capuz</a>
+            <a href="?categoria=Manta" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Manta</a>
+            <a href="?categoria=fralda%20%de%20boca" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Fralda de Boca</a>
+            <a href="?categoria=Necessaire" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Necessaires</a>
+            <a href="?categoria=Toalha%20Fralda" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas Fralda</a>
+            <a href="?categoria=Pano%20de%20Prato" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Panos de Prato</a>
+            <a href="?categoria=Bolsa%20Maternidade" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Bolsas Maternidade</a>
+            <a href="?categoria=Saquino%20Maternidade" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Saquinos Maternidade</a>
+            <a href="?categoria=Porta%20lenco%20umedecido" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Porta Lenços Umedecido</a>
+            <a href="?categoria=Estojo" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Estojos</a>
+            <a href="?categoria=Cardeneta%20Vacinação" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Porta Documentos</a>
+            <a href="?categoria=Naninhas" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Naninhas</a>
+            <a href="?categoria=Mochila" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Mochilas</a>
+            <a href="?categoria=Bolsas" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Bolsas Maternidade</a>
 
         </div>
         <div class="catalogo__produtos">
@@ -137,7 +136,17 @@
     <hr />
 
     <footer class="rodape">
-        <h2 class="rodape__titulo">Arte Com Carinho &copf; <br> <p class="desenvolvedor">DEV. Por Carlos</p></h2>
+        <h2 class="rodape__titulo">Arte Com Carinho.<br> <a href="https://github.com/chsouza1"><p class="desenvolvedor">DEV. Por Carlos</p></a></h2>
+        <a href="https://www.instagram.com/artecomcarinho75" target="_blank">
+        <img src="img/logotipo-do-instagram.png" alt="insta" widht="30" height="30">
+        </a>
+        <a href="https://wa.me/+5541999932625" target="_blank">
+        <img src="img/whatsapp.png" alt="whatsapp" widht="30" height="30">
+        </a>
+        <a href="https://www.facebook.com/simone.armin.7" target="_blank">
+            <img src="img/facebook.png" alt="facebook" widht="30" height="30">
+        </a>
+        <p>© 2024 All rights reserved</p>
     </footer>
 </body>
 </html>

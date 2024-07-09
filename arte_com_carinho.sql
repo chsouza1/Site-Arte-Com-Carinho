@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Jul-2024 às 22:46
+-- Tempo de geração: 09-Jul-2024 às 22:35
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -105,10 +105,17 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `descricao`, `preco`, `imagem`, `categoria`, `categoria_id`) VALUES
-(12, 'Porta Vacina', 'Porta Vacinaa', 50.00, 'Porta vacina.jpg', 'Cardeneta Vacinação', NULL),
-(13, 'Niniha', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0017.jpg', 'Naninhas', NULL),
-(14, 'Naninha', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0018.jpg', 'Naninhas', NULL),
-(15, 'Toalha fralda', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0015.jpg', 'Toalha Fralda', NULL);
+(12, 'Porta Cardeneta de Vacinação Abelhinha', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Porta vacina.jpg', 'Cardeneta Vacinação', NULL),
+(13, 'Naninha Ursinhos', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0017.jpg', 'Naninhas', NULL),
+(14, 'Naninha Elefantinho', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0018.jpg', 'Naninhas', NULL),
+(17, 'Naninha Vaquinha', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Captura de tela 2024-07-09 150544.png', 'Naninhas', NULL),
+(18, 'Toalha Capuz de Bebê Leão', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0015.jpg', 'Toalha de Capuz', NULL),
+(19, 'Toalha Capuz de Bebê Sereia Do Mar.', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0014.jpg', 'Toalha de Capuz', NULL),
+(20, 'Porta Cardeneta de Vacinação Trator', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0011.jpg', 'Cardeneta Vacinação', NULL),
+(21, 'Fralda de boca', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0009.jpg', 'Fralda de Boca', NULL),
+(22, 'Fralda de Boca Raposa Astronauta', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0005.jpg', 'Fralda de Boca', NULL),
+(23, 'Necessaire Enfermeiras', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0025.jpg', 'Necessaire', NULL),
+(24, 'Porta Cardeneta de Vacinação Ursinho', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Captura de tela 2024-07-09 152341.png', 'Cardeneta Vacinação', NULL);
 
 -- --------------------------------------------------------
 
@@ -254,7 +261,7 @@ ALTER TABLE `ninho`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `toalha_capus`
