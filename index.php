@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         function toggleCategories() {
             var x = document.getElementById("catalogoBotoes");
@@ -36,6 +37,11 @@
             <h1 class="container__titulo"><b class="container__titulo--negrito">Arte</b> <span class="titulo__books">Com Carinho</span></h1>
         </div>
         <div class="container">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/artecomcarinho75" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/+5541999932625" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/simone.armin.7" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
             <a href="login_admin.php" class="container__links">
                 <img src="img/Usuário.svg" alt="Meu perfil" class="container__imagem">
                 <p class="container__texto">Login</p>
@@ -80,7 +86,7 @@
             <?php
             $servername = "localhost";
             $username = "root";
-            $password = "#Runeterra.7894@!";
+            $password = "";
             $dbname = "arte_com_carinho";
             $conn = new mysqli($servername, $username, $password, $dbname);
             if ($conn->connect_error) {
