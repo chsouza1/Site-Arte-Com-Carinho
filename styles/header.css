@@ -101,6 +101,49 @@
 .banner__botao-pesquisa {
     display: none;
 }
+.catalogo__botoes {
+    display: none;
+    list-style: none;
+    padding: 0;
+    background-color: rgba(255, 99, 71, 0.5); /* Fundo transparente */
+    position: absolute;
+    margin-top: 10px;
+    z-index: 1;
+    border: none; /* Remove borda para garantir transparência total */
+}
+.catalogo__botoes li {
+    margin: 5px 0;
+}
+.catalogo__container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+.container__formulario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    list-style: none;
+}
+.pagination li {
+    margin: 0 5px;
+}
+.pagination a {
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+}
+.pagination a:hover {
+    background-color: #ddd;
+}
 
 
 @media  screen and (min-width: 1024px) {
@@ -180,6 +223,49 @@
     .banner__botao-pesquisa {
         display: none;
     }
+    .catalogo__botoes {
+        display: none;
+        list-style: none;
+        padding: 0;
+        background-color: rgba(255, 99, 71, 0.5); /* Fundo transparente */
+        position: absolute;
+        margin-top: 10px;
+        z-index: 1;
+        border: none; /* Remove borda para garantir transparência total */
+    }
+    .catalogo__botoes li {
+        margin: 5px 0;
+    }
+    .catalogo__container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+    }
+    .container__formulario {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .pagination {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        list-style: none;
+    }
+    .pagination li {
+        margin: 0 5px;
+    }
+    .pagination a {
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #333;
+    }
+    .pagination a:hover {
+        background-color: #ddd;
+    }
 }
 
 
@@ -207,5 +293,48 @@
     }
     .banner__botao-pesquisa {
         display: none;
+    }
+    .catalogo__botoes {
+        display: none;
+        list-style: none;
+        padding: 0;
+        background-color: rgba(255, 99, 71, 0.5); /* Fundo transparente */
+        position: absolute;
+        margin-top: 10px;
+        z-index: 1;
+        border: none; /* Remove borda para garantir transparência total */
+    }
+    .catalogo__botoes li {
+        margin: 5px 0;
+    }
+    .catalogo__container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+    }
+    .container__formulario {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .pagination {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        list-style: none;
+    }
+    .pagination li {
+        margin: 0 5px;
+    }
+    .pagination a {
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #333;
+    }
+    .pagination a:hover {
+        background-color: #ddd;
     }
 }
