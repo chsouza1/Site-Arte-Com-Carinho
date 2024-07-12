@@ -23,6 +23,9 @@
             }
         }
     </script>
+    <style>
+        
+    </style>
 </head>
 <body>
     <header class="cabecalho">
@@ -42,17 +45,18 @@
                 <a href="https://wa.me/+5541999932625" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://www.facebook.com/simone.armin.7" target="_blank"><i class="fab fa-facebook"></i></a>
             </div>
-            <a href="login_admin.php" class="container__links">
-                <img src="img/Usuário.svg" alt="Meu perfil" class="container__imagem">
-                <p class="container__texto">Login</p>
-            </a>
         </div>
     </header>
+    <div class="mini-header">
+        <div class="animated-info">
+            <p>Produtos artesanais | Costura Criativa | Bordados Computadorizados | Envios Para todo o Brasil</p>
+        </div>
+    </div>
 
     <section class="banner">
         <h2 class="banner__titulo">Já sabe por onde começar?</h2>
         <form method="GET" action="" class="banner__formulario">
-                <input type="search" name="search" class="banner__pesquisa" placeholder="O que você deseja achar?">
+                <input type="search" name="search" class="banner__pesquisa" placeholder="O que deseja procurar?">
                 <button type="submit" class="banner__botao-pesquisa">Buscar</button>
             </form>
     </section>
@@ -61,7 +65,7 @@
             <button class="w3-btn w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)" onclick="toggleCategories()">Mostrar Categorias</button>
         </div>
         <ul id="catalogoBotoes" class="catalogo__botoes">
-            <li><a href="?categoria=Toalha%20de%20Boca" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Boca</a></li>
+            <li><a href="?categoria=Fralda%20de%20Boca" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Boca</a></li>
             <li><a href="?categoria=Toalha%20de%20Banho" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Banho</a></li>
             <li><a href="?categoria=Toalha%20de%20Rosto" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Rosto</a></li>
             <li><a href="?categoria=Toalha%20de%20Capuz" class="w3-button w3-border w3-round-large" style="background-color:rgb(255, 99, 71, 0.5)">Toalhas de Capuz</a></li>
@@ -86,7 +90,7 @@
             <?php
             $servername = "localhost";
             $username = "root";
-            $password = "";
+            $password = "#Runeterra.7894@!";
             $dbname = "arte_com_carinho";
             $conn = new mysqli($servername, $username, $password, $dbname);
             if ($conn->connect_error) {
@@ -163,14 +167,6 @@
             ?>
         </ul>
     </div>
-
-    <section class="contato">
-        <div class="contato__descrição">
-            <h2 class="contato__titulo">Fique por dentro das novidades!</h2>
-            <p class="contato__texto">Atualizações de novos .......</p>
-        </div>
-        <input type="email" placeholder="Cadastre seu e-mail" class="contato__email"> 
-    </section>
 
     <hr />
 

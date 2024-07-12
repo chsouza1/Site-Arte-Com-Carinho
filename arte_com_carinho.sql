@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Jul-2024 às 22:35
--- Versão do servidor: 10.4.32-MariaDB
--- versão do PHP: 8.2.12
+-- Tempo de geração: 12/07/2024 às 03:13
+-- Versão do servidor: 8.0.37
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,16 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `categorias`
+-- Estrutura para tabela `categorias`
 --
 
 CREATE TABLE `categorias` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `categorias`
+-- Despejando dados para a tabela `categorias`
 --
 
 INSERT INTO `categorias` (`id`, `nome`) VALUES
@@ -59,122 +59,135 @@ INSERT INTO `categorias` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `manta`
+-- Estrutura para tabela `manta`
 --
 
 CREATE TABLE `manta` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `descricao` text NOT NULL,
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `descricao` text COLLATE utf8mb4_general_ci NOT NULL,
   `preco` decimal(10,2) NOT NULL,
-  `imagem` varchar(255) NOT NULL
+  `imagem` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ninho`
+-- Estrutura para tabela `ninho`
 --
 
 CREATE TABLE `ninho` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `descricao` text NOT NULL,
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `descricao` text COLLATE utf8mb4_general_ci NOT NULL,
   `preco` decimal(10,2) NOT NULL,
-  `imagem` varchar(255) NOT NULL
+  `imagem` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos`
+-- Estrutura para tabela `produtos`
 --
 
 CREATE TABLE `produtos` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `descricao` text NOT NULL,
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `descricao` text COLLATE utf8mb4_general_ci NOT NULL,
   `preco` decimal(10,2) NOT NULL,
-  `imagem` varchar(255) NOT NULL,
-  `categoria` varchar(100) NOT NULL,
-  `categoria_id` int(11) DEFAULT NULL
+  `imagem` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `categoria` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `categoria_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `produtos`
+-- Despejando dados para a tabela `produtos`
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `descricao`, `preco`, `imagem`, `categoria`, `categoria_id`) VALUES
-(12, 'Porta Cardeneta de Vacinação Abelhinha', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Porta vacina.jpg', 'Cardeneta Vacinação', NULL),
+(12, 'Porta Caderneta de Vacinação Abelhinha', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Porta vacina.jpg', 'Cardeneta Vacinação', NULL),
 (13, 'Naninha Ursinhos', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0017.jpg', 'Naninhas', NULL),
 (14, 'Naninha Elefantinho', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0018.jpg', 'Naninhas', NULL),
 (17, 'Naninha Vaquinha', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Captura de tela 2024-07-09 150544.png', 'Naninhas', NULL),
 (18, 'Toalha Capuz de Bebê Leão', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0015.jpg', 'Toalha de Capuz', NULL),
 (19, 'Toalha Capuz de Bebê Sereia Do Mar.', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0014.jpg', 'Toalha de Capuz', NULL),
-(20, 'Porta Cardeneta de Vacinação Trator', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0011.jpg', 'Cardeneta Vacinação', NULL),
+(20, 'Porta Caderneta de Vacinação Trator', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0011.jpg', 'Cardeneta Vacinação', NULL),
 (21, 'Fralda de boca', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0009.jpg', 'Fralda de Boca', NULL),
 (22, 'Fralda de Boca Raposa Astronauta', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0005.jpg', 'Fralda de Boca', NULL),
 (23, 'Necessaire Enfermeiras', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0025.jpg', 'Necessaire', NULL),
-(24, 'Porta Cardeneta de Vacinação Ursinho', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Captura de tela 2024-07-09 152341.png', 'Cardeneta Vacinação', NULL);
+(24, 'Porta Caderneta de Vacinação Ursinho', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Captura de tela 2024-07-09 152341.png', 'Cardeneta Vacinação', NULL),
+(26, 'Fralda de Boca Bichinhos', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0008.jpg', 'Fralda de Boca', NULL),
+(28, 'Bolsa Maternidade Bebê Leão', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0026.jpg', 'Bolsas', NULL),
+(29, 'Pano de Prato Natalino', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0028.jpg', 'Pano de Prato', NULL),
+(30, 'Necessaire Da Mamãe e do Bebê', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Necessarie Mamae.png', 'Necessaire', NULL),
+(31, 'Fralda de Boca Girafas', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Fralda de Boca Girafas.png', 'Fralda de Boca', NULL),
+(32, 'Fralda de Boca Carrinhos', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Fralda de Boca Carros.png', 'Fralda de Boca', NULL),
+(33, 'Porta Caderneta de Vacinação Baby Dino', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Caderneta Bebe Dino.png', 'Cardeneta Vacinação', NULL),
+(34, 'Toalha de Banho Personalizada', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Toalha de Banho.png', 'Toalha de Banho', NULL),
+(35, 'Toalha de Banho Personalizada', 'A personalização do produto fica a sua escolha!!.', 0.00, 'Toalha de Banho1.png', 'Toalha de Banho', NULL),
+(36, 'Manta de Bebê Personalizada', 'A personalização do produto fica a sua escolha!!.', 0.00, 'IMG-20240708-WA0009.jpg', 'Manta', NULL),
+(37, 'Porta Caderneta de Vacinação Astronauta', 'A personalização do produto fica a sua escolha!!', 0.00, 'Caderneta Vacinação.png', 'Cardeneta Vacinação', NULL),
+(38, 'Toalha de Banho Personalizado', 'A personalização do produto fica a sua escolha!!', 0.00, 'Toalha de Banho 2.png', 'Toalha de Banho', NULL),
+(39, 'Toalha de Banho Personalizada Preta', 'A personalização do produto fica a sua escolha!!', 0.00, 'Toalha de Banho pre.png', 'Toalha de Banho', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `toalha_capus`
+-- Estrutura para tabela `toalha_capus`
 --
 
 CREATE TABLE `toalha_capus` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `descricao` text NOT NULL,
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `descricao` text COLLATE utf8mb4_general_ci NOT NULL,
   `preco` decimal(10,2) NOT NULL,
-  `imagem` varchar(255) NOT NULL
+  `imagem` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `toalha_de_banho`
+-- Estrutura para tabela `toalha_de_banho`
 --
 
 CREATE TABLE `toalha_de_banho` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `descricao` text NOT NULL,
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `descricao` text COLLATE utf8mb4_general_ci NOT NULL,
   `preco` decimal(10,2) NOT NULL,
-  `imagem` varchar(255) NOT NULL
+  `imagem` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `toalha_de_boca`
+-- Estrutura para tabela `toalha_de_boca`
 --
 
 CREATE TABLE `toalha_de_boca` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `descricao` text NOT NULL,
+  `id` int NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `descricao` text COLLATE utf8mb4_general_ci NOT NULL,
   `preco` decimal(10,2) NOT NULL,
-  `imagem` varchar(255) NOT NULL
+  `imagem` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura para tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `usuario` varchar(50) NOT NULL,
-  `senha` varchar(255) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `usuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `senha` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Despejando dados para a tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `senha`, `email`, `created_at`) VALUES
@@ -187,112 +200,112 @@ INSERT INTO `usuarios` (`id`, `usuario`, `senha`, `email`, `created_at`) VALUES
 --
 
 --
--- Índices para tabela `categorias`
+-- Índices de tabela `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `manta`
+-- Índices de tabela `manta`
 --
 ALTER TABLE `manta`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `ninho`
+-- Índices de tabela `ninho`
 --
 ALTER TABLE `ninho`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produtos`
+-- Índices de tabela `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_categoria` (`categoria_id`);
 
 --
--- Índices para tabela `toalha_capus`
+-- Índices de tabela `toalha_capus`
 --
 ALTER TABLE `toalha_capus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `toalha_de_banho`
+-- Índices de tabela `toalha_de_banho`
 --
 ALTER TABLE `toalha_de_banho`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `toalha_de_boca`
+-- Índices de tabela `toalha_de_boca`
 --
 ALTER TABLE `toalha_de_boca`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `usuarios`
+-- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `manta`
 --
 ALTER TABLE `manta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `ninho`
 --
 ALTER TABLE `ninho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de tabela `toalha_capus`
 --
 ALTER TABLE `toalha_capus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `toalha_de_banho`
 --
 ALTER TABLE `toalha_de_banho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `toalha_de_boca`
 --
 ALTER TABLE `toalha_de_boca`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `produtos`
+-- Restrições para tabelas `produtos`
 --
 ALTER TABLE `produtos`
   ADD CONSTRAINT `fk_categoria` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`);

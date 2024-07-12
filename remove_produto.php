@@ -2,7 +2,7 @@
 // Conexão com o banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "#Runeterra.7894@!";
 $dbname = "arte_com_carinho";
 
 // Verificar se foi enviado um ID via GET

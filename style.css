@@ -6,6 +6,7 @@
 @import url(styles/w3.css);
 @import url(styles/imgp.css);
 @import url(styles/icons.css);
+@import url(styles/mini.css);
 :root {
     --cor-branca: #FFFF;    
     --cor-de-fundo: #EBECEE;

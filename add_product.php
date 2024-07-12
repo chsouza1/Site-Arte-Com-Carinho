@@ -2,7 +2,7 @@
 // Configuração do banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "#Runeterra.7894@!";
 $dbname = "arte_com_carinho";
 
 // Cria a conexão
